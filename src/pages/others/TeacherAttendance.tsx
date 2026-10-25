@@ -3,7 +3,7 @@ import PageHeader from "../../components/PageHeader";
 import { useAttendance, useStaff, uid } from "../../store";
 import type { AttendanceRecord } from "../../types";
 import { fmtDate, todayISO } from "../../utils";
-import { Save } from "lucide-react";
+import { Save, Printer } from "lucide-react";
 
 export default function TeacherAttendance() {
   const [staff] = useStaff();
@@ -30,7 +30,16 @@ export default function TeacherAttendance() {
 
   return (
     <div>
-      <PageHeader title="Teacher / Staff Attendance" subtitle={fmtDate(date)} actions={<button className="btn-primary" onClick={save}><Save className="w-4 h-4" /> Save</button>} />
+      <PageHeader
+        title="Teacher / Staff Attendance"
+        subtitle={fmtDate(date)}
+        actions={
+          <>
+            <button className="btn-secondary" onClick={save}><Save className="w-4 h-4" /> Save</button>
+            <button className="btn-primary" onClick={() => window.print()}><Printer className="w-4 h-4" /> Print</button>
+          </>
+        }
+      />
       <div className="card mb-4"><div className="card-body"><label className="label">Date</label><input type="date" className="input w-48" value={date} onChange={(e) => setDate(e.target.value)} /></div></div>
       <div className="card">
         <table className="table">

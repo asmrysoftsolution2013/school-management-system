@@ -56,6 +56,8 @@ import LeaveRecord from "./pages/admin/LeaveRecord";
 import Library from "./pages/admin/Library";
 import Stock from "./pages/admin/Stock";
 import StaffStatement from "./pages/admin/StaffStatement";
+import SalaryRegister from "./pages/admin/SalaryRegister";
+import StaffAttendanceReport from "./pages/admin/StaffAttendanceReport";
 import SchoolInfo from "./pages/admin/SchoolInfo";
 
 // Others
@@ -70,6 +72,7 @@ import StudentAttendance from "./pages/others/StudentAttendance";
 import TeacherAttendance from "./pages/others/TeacherAttendance";
 import BiometricAttendance from "./pages/others/BiometricAttendance";
 import TimetableView from "./pages/others/TimetableView";
+import StudentAttendanceReport from "./pages/others/StudentAttendanceReport";
 
 function Protected({ children }: { children: React.ReactNode }) {
   const { user } = useAuth();
@@ -145,6 +148,8 @@ export default function App() {
         <Route path="admin/library"           element={<Library />} />
         <Route path="admin/stock"             element={<Stock />} />
         <Route path="admin/staff-statement"   element={<StaffStatement />} />
+        <Route path="admin/salary-register"   element={<SalaryRegister />} />
+        <Route path="admin/staff-attendance-report" element={<StaffAttendanceReport />} />
         <Route path="settings"                element={<SchoolInfo />} />
 
         {/* Others */}
@@ -160,6 +165,7 @@ export default function App() {
         <Route path="others/student-attendance" element={<StudentAttendance />} />
         <Route path="others/biometric-attendance" element={<BiometricAttendance />} />
         <Route path="others/timetable-view"     element={<TimetableView />} />
+        <Route path="others/student-attendance-report" element={<StudentAttendanceReport />} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>

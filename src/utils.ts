@@ -40,21 +40,83 @@ export function fileToDataURL(file: File): Promise<string> {
   });
 }
 
-export const CLASSES = [
+// Pakistani BISE-style class list.
+// School = Nursery → 10. College = full set of intermediate groups, diplomas,
+// and bachelor programs commonly offered under BISE/HEC-affiliated boards.
+
+const SCHOOL_CLASSES = [
   "Nursery", "KG",
   "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
-  "11", "12",
-  "BA-I", "BA-II",
-  "BSc-I", "BSc-II",
-  "BCom-I", "BCom-II",
 ];
+
+const COLLEGE_CLASSES = [
+  // Intermediate (HSSC)
+  "FSc Pre-Engineering (Part I)",
+  "FSc Pre-Engineering (Part II)",
+  "FSc Pre-Medical (Part I)",
+  "FSc Pre-Medical (Part II)",
+  "ICS Physics (Part I)",
+  "ICS Physics (Part II)",
+  "ICS Statistics (Part I)",
+  "ICS Statistics (Part II)",
+  "ICS Economics (Part I)",
+  "ICS Economics (Part II)",
+  "ICom (Part I)",
+  "ICom (Part II)",
+  "FA General Science (Part I)",
+  "FA General Science (Part II)",
+  "FA Humanities (Part I)",
+  "FA Humanities (Part II)",
+  "FA IT (Part I)",
+  "FA IT (Part II)",
+  "I.Hsc Home Economics (Part I)",
+  "I.Hsc Home Economics (Part II)",
+
+  // Diplomas
+  "D.Com (Part I)",
+  "D.Com (Part II)",
+  "DAE Civil (Year I)",
+  "DAE Civil (Year II)",
+  "DAE Civil (Year III)",
+  "DAE Electrical (Year I)",
+  "DAE Electrical (Year II)",
+  "DAE Electrical (Year III)",
+  "DAE Mechanical (Year I)",
+  "DAE Mechanical (Year II)",
+  "DAE Mechanical (Year III)",
+
+  // Bachelor
+  "BA (Year I)",
+  "BA (Year II)",
+  "BSc (Year I)",
+  "BSc (Year II)",
+  "BCom (Year I)",
+  "BCom (Year II)",
+  "BBA (Year I)",
+  "BBA (Year II)",
+  "BS CS (Year I)",
+  "BS CS (Year II)",
+  "BS CS (Year III)",
+  "BS CS (Year IV)",
+  "BS IT (Year I)",
+  "BS IT (Year II)",
+  "BS IT (Year III)",
+  "BS IT (Year IV)",
+  "BS English (Year I)",
+  "BS English (Year II)",
+  "BS English (Year III)",
+  "BS English (Year IV)",
+];
+
+export const CLASSES = [...SCHOOL_CLASSES, ...COLLEGE_CLASSES];
 export const SECTIONS = [
   "A", "B", "C", "D",
-  "Pre-Medical", "Pre-Engineering", "ICS", "ICom", "FA",
+  "Morning", "Evening",
+  "Boys", "Girls",
 ];
 export const CLASS_LEVELS = {
-  School: ["Nursery", "KG", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
-  College: ["11", "12", "BA-I", "BA-II", "BSc-I", "BSc-II", "BCom-I", "BCom-II"],
+  School:  SCHOOL_CLASSES,
+  College: COLLEGE_CLASSES,
 } as const;
 export const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 export const TERMS = ["First Term", "Mid Term", "Final Term"];

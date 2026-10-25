@@ -40,7 +40,21 @@ export function fileToDataURL(file: File): Promise<string> {
   });
 }
 
-export const CLASSES = ["Nursery", "KG", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
-export const SECTIONS = ["A", "B", "C"];
+export const CLASSES = [
+  "Nursery", "KG",
+  "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+  "11", "12",
+  "BA-I", "BA-II",
+  "BSc-I", "BSc-II",
+  "BCom-I", "BCom-II",
+];
+export const SECTIONS = [
+  "A", "B", "C", "D",
+  "Pre-Medical", "Pre-Engineering", "ICS", "ICom", "FA",
+];
+export const CLASS_LEVELS = {
+  School: ["Nursery", "KG", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+  College: ["11", "12", "BA-I", "BA-II", "BSc-I", "BSc-II", "BCom-I", "BCom-II"],
+} as const;
 export const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 export const TERMS = ["First Term", "Mid Term", "Final Term"];

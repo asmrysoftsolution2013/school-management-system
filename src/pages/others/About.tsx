@@ -24,7 +24,7 @@ export default function About() {
           </dl>
 
           <div className="mt-8 text-xs text-slate-500">
-            School Management System • Built with React, TypeScript, Vite & Tailwind CSS
+            Learning Management System • Built with React, TypeScript, Vite & Tailwind CSS
             <br />Data is stored locally in your browser. Export and keep a backup regularly.
           </div>
         </div>

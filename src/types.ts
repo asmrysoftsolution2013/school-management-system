@@ -1,4 +1,4 @@
-// Shared domain types for the School Management System.
+// Shared domain types for the Learning Management System.
 
 export type ID = string;
 

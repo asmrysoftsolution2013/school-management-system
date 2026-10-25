@@ -7,8 +7,8 @@ import { useSettings } from "../store";
 export default function Login() {
   const { login } = useAuth();
   const [settings] = useSettings();
-  const [u, setU] = useState("admin");
-  const [p, setP] = useState("admin");
+  const [u, setU] = useState("");
+  const [p, setP] = useState("");
   const [err, setErr] = useState<string | null>(null);
   const nav = useNavigate();
 
@@ -32,7 +32,7 @@ export default function Login() {
           </div>
         </div>
         <div>
-          <h2 className="text-3xl font-semibold leading-tight">School Management System</h2>
+          <h2 className="text-3xl font-semibold leading-tight">Learning Management System</h2>
           <p className="mt-3 text-brand-100 max-w-md">
             Admissions, fees, results, staff, attendance, library & stock — all in one place.
           </p>
@@ -46,7 +46,7 @@ export default function Login() {
             <div>
               <h1 className="text-xl font-semibold">Sign in</h1>
               <p className="text-sm text-slate-500 mt-1">
-                Use <code className="bg-slate-100 px-1.5 rounded text-xs">admin / admin</code> to get started.
+                Enter your credentials to continue.
               </p>
             </div>
             {err && <div className="text-rose-600 text-sm bg-rose-50 border border-rose-200 rounded p-2">{err}</div>}
@@ -61,9 +61,6 @@ export default function Login() {
             <button className="btn-primary w-full justify-center" type="submit">
               <LogIn className="w-4 h-4" /> Sign in
             </button>
-            <div className="text-xs text-slate-400 text-center">
-              Other demo users: teacher / teacher · accountant / accountant
-            </div>
           </div>
         </form>
       </div>

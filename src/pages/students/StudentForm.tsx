@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import PageHeader from "../../components/PageHeader";
-import { useStudents, uid } from "../../store";
-import { CLASSES, SECTIONS, fileToDataURL, todayISO } from "../../utils";
+import { useAvailableClasses, useStudents, uid } from "../../store";
+import { SECTIONS, fileToDataURL, todayISO } from "../../utils";
 import type { Student } from "../../types";
 import { Save, X, Upload } from "lucide-react";
 
@@ -17,6 +17,7 @@ export default function StudentForm() {
   const { id } = useParams();
   const nav = useNavigate();
   const [students, setStudents] = useStudents();
+  const CLASSES = useAvailableClasses();
   const existing = useMemo(() => students.find((s) => s.id === id), [students, id]);
   const [form, setForm] = useState<Student>(() => existing ?? empty());
 

@@ -12,6 +12,7 @@ export interface SchoolSettings {
   principal: string;
   logoDataUrl?: string;
   signatureDataUrl?: string;
+  institutionType?: "School" | "College" | "Both";
 }
 
 export interface Student {

@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "../auth";
 import { useSettings } from "../store";
+import SetupModal from "./SetupModal";
 
 const NAV = [
   { to: "/", label: "Dashboard", icon: Home },
@@ -24,9 +25,11 @@ export default function Layout() {
   const loc = useLocation();
 
   return (
+    <>
+    <SetupModal />
     <div className="flex min-h-screen">
       <aside
-        className={`fixed md:static z-30 inset-y-0 left-0 w-64 bg-brand-800 text-brand-50 transform transition-transform ${
+        className={`fixed md:static z-30 inset-y-0 left-0 w-64 bg-gradient-to-b from-brand-800 to-brand-900 text-brand-50 transform transition-transform no-print ${
           open ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0`}
       >
@@ -78,7 +81,7 @@ export default function Layout() {
       </aside>
 
       <div className="flex-1 flex flex-col min-w-0">
-        <header className="sticky top-0 z-20 bg-white border-b border-slate-200">
+        <header className="sticky top-0 z-20 bg-white border-b border-slate-200 no-print">
           <div className="flex items-center justify-between px-5 py-3">
             <div className="flex items-center gap-3">
               <button
@@ -110,6 +113,7 @@ export default function Layout() {
         </main>
       </div>
     </div>
+    </>
   );
 }
 

@@ -48,6 +48,20 @@ export default function SchoolInfo() {
           <div><label className="label">Email</label><input className="input" value={form.email} onChange={(e) => upd("email", e.target.value)} /></div>
           <div><label className="label">Session</label><input className="input" value={form.session} onChange={(e) => upd("session", e.target.value)} /></div>
           <div><label className="label">Principal</label><input className="input" value={form.principal} onChange={(e) => upd("principal", e.target.value)} /></div>
+          <div className="md:col-span-2">
+            <label className="label">Institution Level</label>
+            <select
+              className="input"
+              value={form.institutionType ?? ""}
+              onChange={(e) => upd("institutionType", (e.target.value || undefined) as typeof form.institutionType)}
+            >
+              <option value="">— choose —</option>
+              <option value="School">School (till 10th)</option>
+              <option value="College">College (11, 12, degree)</option>
+              <option value="Both">School + College</option>
+            </select>
+            <p className="text-xs text-slate-500 mt-1">Controls which classes appear in dropdowns and reports.</p>
+          </div>
         </div>
         <div className="card-header border-t justify-end"><button className="btn-primary"><Save className="w-4 h-4" /> Save</button></div>
       </form>

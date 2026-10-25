@@ -98,6 +98,17 @@ export const defaultSettings: SchoolSettings = {
 
 // Typed per-collection hooks for ergonomics.
 export const useSettings    = () => useStore<SchoolSettings>(KEYS.settings, defaultSettings);
+export function useAvailableClasses(): string[] {
+  const [settings] = useSettings();
+  const school = ["Nursery", "KG", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+  const college = ["11", "12", "BA-I", "BA-II", "BSc-I", "BSc-II", "BCom-I", "BCom-II"];
+  switch (settings.institutionType) {
+    case "School":  return school;
+    case "College": return college;
+    case "Both":    return [...school, ...college];
+    default:        return [...school, ...college];
+  }
+}
 export const useStudents    = () => useStore<Student[]>(KEYS.students, []);
 export const useStaff       = () => useStore<Staff[]>(KEYS.staff, []);
 export const useSubjects    = () => useStore<Subject[]>(KEYS.subjects, []);

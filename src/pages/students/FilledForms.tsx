@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PageHeader from "../../components/PageHeader";
+import PrintHeader from "../../components/PrintHeader";
 import { useSettings, useStudents } from "../../store";
 import { fmtDate } from "../../utils";
 import { Printer } from "lucide-react";
@@ -42,11 +43,7 @@ export default function FilledForms() {
         {chosen.map((s) => (
           <div key={s.id} className="card break-inside-avoid print:page-break-after-always">
             <div className="card-body">
-              <div className="text-center border-b pb-3 mb-4">
-                <h3 className="font-semibold">{settings.name}</h3>
-                <div className="text-xs text-slate-500">{settings.address}</div>
-                <div className="font-medium mt-1">Admission Form — {settings.session}</div>
-              </div>
+              <PrintHeader documentTitle={`Admission Form — ${settings.session}`} showOnScreen />
               <div className="flex justify-end mb-3">
                 <div className="w-24 h-28 border border-slate-300 grid place-items-center text-xs text-slate-400 overflow-hidden">
                   {s.photoDataUrl ? <img src={s.photoDataUrl} className="object-cover w-full h-full" /> : "Photo"}
